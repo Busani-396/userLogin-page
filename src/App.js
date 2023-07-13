@@ -3,6 +3,7 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login';
+import Card from './components/UI/Card';
 //import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
