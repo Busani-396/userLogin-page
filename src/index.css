@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.form-control, .input-group-text {
+  border: 1px solid rgba(227, 225, 225, 0.05) !important;
+  background-color:  rgba(227, 225, 225, 0.452) !important;
+  
+}
+
+.form-btn{
+  width : 190px;
+  height : 50px;
+  
+}
+
