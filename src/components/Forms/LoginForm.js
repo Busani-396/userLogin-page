@@ -10,12 +10,22 @@ const LoginForm = ()=>{
     }
 
     const onchangeUsername = (e)=>{
-            setUser({...user,username: e.target.value} )
+            setUser((prevState)=>{
+               return  {
+                        ...prevState,username: e.target.value
+                     } 
+                    }
+                )
     }
 
     const onchangePassword = (e)=>{
-        setUser({...user,password: e.target.value} )
-    }
+        setUser((prevState)=>{
+            return  {
+                     ...prevState,password: e.target.value
+                  } 
+                 }
+        )
+                }
 
     // if(user.username && user.password){
     //     setActive(true);
