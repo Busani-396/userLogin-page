@@ -1,0 +1,14 @@
+input{
+    font-size: .9em !important;
+}
+
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: rgb(156, 155, 155) !important;
+  }
+  
+
+input:active{
+    border : 1px solid black !important;
+}
