@@ -50,18 +50,18 @@ function App() {
 
   return (
     <div className='container-fluid d-flex justify-content-center align-items-center' style={{height:'100vh',backgroundColor:'rgba(210,210,210,.6)'}}>
-    <div className='card m-auto col-lg-6 col-md-6 col-sm-12'>
+    <div className='card m-auto col-lg-6 col-md-6 col-sm-12 '>
       <div className="d-flex justify-content-between align-items-center" style={{fontSize:'1.5em',padding:'5px 10px'}}>
-        <div>
+        <div className='col-lg-6 col-md-6 '>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-amd" viewBox="0 0 16 16">
           <path d="m.334 0 4.358 4.359h7.15v7.15l4.358 4.358V0H.334ZM.2 9.72l4.487-4.488v6.281h6.28L6.48 16H.2V9.72Z"/>
         </svg>
         &nbsp;
-        Logo {user.loginNow }
+        Logo 
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-6 col-md-6 d-flex justify-content-end align-items-center">
              <div>
-                <button onClick ={toggleForms}>toggle</button>
+                <button className='border-0 rounded-pill' onClick ={toggleForms} style={{paddingLeft : '30px', paddingRight: '30px', fontSize:'.8em', fontWeight : '300'}}>{ user.loginNow ? 'Sign Up' : 'Sign In' }</button>
              </div>
           </div>
       </div>
