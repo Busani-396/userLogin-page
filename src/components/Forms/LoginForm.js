@@ -1,9 +1,14 @@
-import { useEffect, useState } from "react";
-import '../Forms/form.css'
+import { useEffect, useState, useContext } from "react";
+import '../Forms/form.css';
+import { UserInfo } from "../../App";
+import InputField from "./InputField";
+import Button from "./Button";
 
 const LoginForm = ()=>{
     const [user, setUser] = useState({username:"", password:""});
     const [isActive,setActive] = useState(true);
+
+    const userInfo = useContext(UserInfo)
 
     const submitForm = ()=>{
         console.log(user)
@@ -34,6 +39,23 @@ useEffect(()=>{
         setActive(false)
     }
 })
+
+console.log(userInfo)
+
+console.log(userInfo.user.username)
+
+const OnChangeInput = (e)=>{
+    const {dispatch} = userInfo;
+    const {name, value } = e.target;
+
+   return dispatch({type : 'login', field : name, value});
+}
+
+
+const onclick = ()=>{
+    console.log('clicked')
+    return userInfo.dispatch({type : 'login'})
+}
     
 
     const lockIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-lock" viewBox="0 0 16 16">
@@ -50,37 +72,44 @@ const emailIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
         <form>
              <div className="input-group input-group-lg mb-3">
                 <span className="input-group-text" id="basic-addon1">{emailIcon}</span>
-                        <input type="text" 
+                        {/* <input type="text" 
                                value ={user.username}
                                className="form-control"  
                                placeholder="Username" 
                                aria-label="Username" 
                                aria-describedby="basic-addon1"
                                onChange = {onchangeUsername}
-                               />
+                               /> */}
+                        <InputField type= "text" name = 'username' value = {userInfo.user.username} user={userInfo} onChangeInput = {OnChangeInput}/>
                     </div>
                     <div className="input-group input-group-lg mb-3">
                         <span className="input-group-text" id="basic-addon1">{lockIcon}</span>
-                        <input type="password" 
+                        {/* <input type="password" 
                              value ={user.password}
                              className="form-control" 
                              placeholder="Enter passsword" 
                              aria-label="password" 
                              aria-describedby="basic-addon1"
-                            onChange = {onchangePassword}/>
+                            onChange = {onchangePassword}/> */}
+
+                        <InputField type= "password" name = 'password' value ={userInfo.user.password} onChangeInput = {OnChangeInput}/>
+
                     </div>
                     <div className="text-center py-4">
                         <p>Forgot your password ?</p>
                     </div>
                     <div className="text-center py-4">
-                       <button
+                       {/* <button
                           type='button'
                           className={`form-btn rounded-pill ${isActive ? '' : 'disabled'}`}
                           onClick={submitForm}
                           disabled={!isActive}
                         >
                        Sign In
-                       </button>
+                       </button> */}
+                       <Button onClick = {onclick}>
+                          Sign In
+                       </Button>
                     </div>
 
                 </form>
