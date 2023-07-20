@@ -1,39 +1,57 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import '../Forms/form.css'
+import InputField from "./InputField";
+import Button from "./Button";
+import { UserInfo } from "../../App";
 
 const RegForm = ()=>{
-    const [user, setUser] = useState({username:"", password:""});
-    const [isActive,setActive] = useState(true);
+    const userInfo = useContext(UserInfo)
+//     const [user, setUser] = useState({username:"", password:""});
+//     const [isActive,setActive] = useState(true);
 
-    const submitForm = ()=>{
-        console.log(user)
-    }
+//     const submitForm = ()=>{
+//         console.log(user)
+//     }
 
-    const onchangeUsername = (e)=>{
-            setUser((prevState)=>{
-               return  {
-                        ...prevState,username: e.target.value
-                     } 
-                    }
-                )
-    }
+//     const onchangeUsername = (e)=>{
+//             setUser((prevState)=>{
+//                return  {
+//                         ...prevState,username: e.target.value
+//                      } 
+//                     }
+//                 )
+//     }
 
-    const onchangePassword = (e)=>{
-        setUser((prevState)=>{
-            return  {
-                     ...prevState,password: e.target.value
-                  } 
-                 }
-        )
+//     const onchangePassword = (e)=>{
+//         setUser((prevState)=>{
+//             return  {
+//                      ...prevState,password: e.target.value
+//                   } 
+//                  }
+//         )
  
-    }
-useEffect(()=>{
-    if(user.username && user.password){
-        setActive(true);
-    }else{
-        setActive(false)
-    }
-})
+//     }
+// useEffect(()=>{
+//     if(user.username && user.password){
+//         setActive(true);
+//     }else{
+//         setActive(false)
+//     }
+// })
+
+
+const OnChangeInput = (e)=>{
+    const {dispatch} = userInfo;
+    const {name, value } = e.target;
+
+   return dispatch({type : 'login', field : name, value});
+}
+
+
+const onclick = ()=>{
+    console.log('clicked')
+    return userInfo.dispatch({type : 'register'})
+}
     
 
     const lockIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-lock" viewBox="0 0 16 16">
@@ -50,74 +68,69 @@ const emailIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
         <form>
              <div className="input-group input-group-lg mb-3">
                 <span className="input-group-text" id="basic-addon1">{emailIcon}</span>
-                        <input type="text" 
-                               value ={user.username}
-                               className="form-control"  
-                               placeholder="Username" 
-                               aria-label="Username" 
-                               aria-describedby="basic-addon1"
-                               onChange = {onchangeUsername}
-                               />
+                
+                        <InputField type= "text" 
+                            name = 'name' 
+                            value = {userInfo.user.name} 
+                            user={userInfo} 
+                            onChangeInput = {OnChangeInput}
+                            />
+
+
                     </div>
 
                     <div className="input-group input-group-lg mb-3">
                 <span className="input-group-text" id="basic-addon1">{emailIcon}</span>
-                        <input type="text" 
-                               value ={user.username}
-                               className="form-control"  
-                               placeholder="Username" 
-                               aria-label="Username" 
-                               aria-describedby="basic-addon1"
-                               onChange = {onchangeUsername}
-                               />
+                    
+                            <InputField type= "text" 
+                                name = 'surname' 
+                                value = {userInfo.user.surname} 
+                                user={userInfo} 
+                                onChangeInput = {OnChangeInput}
+                            />
+
                     </div>
 
                     <div className="input-group input-group-lg mb-3">
-                <span className="input-group-text" id="basic-addon1">{emailIcon}</span>
-                        <input type="text" 
-                               value ={user.username}
-                               className="form-control"  
-                               placeholder="Username" 
-                               aria-label="Username" 
-                               aria-describedby="basic-addon1"
-                               onChange = {onchangeUsername}
-                               />
+                        <span className="input-group-text" id="basic-addon1">{emailIcon}</span>
+                        <InputField type= "email" 
+                            name = 'email' 
+                            value = {userInfo.user.email} 
+                            user={userInfo} 
+                            onChangeInput = {OnChangeInput}
+                            />
+
                     </div>
 
                     <div className="input-group input-group-lg mb-3">
-                <span className="input-group-text" id="basic-addon1">{emailIcon}</span>
-                        <input type="text" 
-                               value ={user.username}
-                               className="form-control"  
-                               placeholder="Username" 
-                               aria-label="Username" 
-                               aria-describedby="basic-addon1"
-                               onChange = {onchangeUsername}
-                               />
+                            <span className="input-group-text" id="basic-addon1">{emailIcon}</span>
+                            <InputField type= "text" 
+                                name = 'username' 
+                                value = {userInfo.user.username} 
+                                user={userInfo} 
+                                onChangeInput = {OnChangeInput}
+                            />
+
                     </div>
                     
                     <div className="input-group input-group-lg mb-3">
                         <span className="input-group-text" id="basic-addon1">{lockIcon}</span>
-                        <input type="password" 
-                             value ={user.password}
-                             className="form-control" 
-                             placeholder="Enter passsword" 
-                             aria-label="password" 
-                             aria-describedby="basic-addon1"
-                            onChange = {onchangePassword}/>
+                        <InputField type= "text" 
+                            name = 'username' 
+                            value = {userInfo.user.username} 
+                            user={userInfo} 
+                            onChangeInput = {OnChangeInput}
+                            />
+
                     </div>
                     <div className="text-center py-4">
                         <p>Forgot your password ?</p>
                     </div>
                     <div className="text-center py-4">
-                       <button
-                          type='button'
-                          className={`form-btn rounded-pill ${isActive ? '' : 'disabled'}`}
-                          onClick={submitForm}
-                          disabled={!isActive}
-                        >
-                       Sign Up
-                       </button>
+                       
+                        <Button onClick = {onclick}>
+                                Sign Up
+                        </Button>
                     </div>
 
                 </form>

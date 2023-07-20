@@ -42,7 +42,7 @@ useEffect(()=>{
 
 console.log(userInfo)
 
-console.log(userInfo.user.username)
+//console.log(userInfo.user.username)
 
 const OnChangeInput = (e)=>{
     const {dispatch} = userInfo;

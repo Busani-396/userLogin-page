@@ -12,6 +12,8 @@ export const UserInfo = createContext();
 
 
 const initialDetails = {
+  name : '',
+  surname : '',
   username : 'name',
   surname : 'surname',
   email : '',
@@ -38,7 +40,7 @@ const reducer = (state, action)=>{
 
 function App() {
   const [user, dispatch] = useReducer(reducer, initialDetails);
-  const [loginNow, setLoginNow] = useState(true);
+  // const [loginNow, setLoginNow] = useState(true);
 
 
   const toggleForms = ()=>{
