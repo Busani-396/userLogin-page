@@ -77,9 +77,9 @@ function App() {
       </div>
       
     </div>
-    {/* <studentName.Provider value ='Busani Dabengwa Moyo'>
+     <studentName.Provider value ='Busani Moyo'>
         <Test initialState={initialState}/>
-    </studentName.Provider> */}
+    </studentName.Provider> 
     
     </div>
   );
