@@ -3,8 +3,8 @@ const Card = (props)=>{
     
     return(
         <div className={card_parent}>
-            <div className={props.title}>
-                <h1>{props.title}</h1>
+            <div className={`mt-4 pt-2 ${props.title}`}>
+                <h3>{props.title}</h3>
             </div>
            {props.children}
         </div>

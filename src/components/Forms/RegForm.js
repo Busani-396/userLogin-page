@@ -121,7 +121,7 @@ const [OnChangeInput, onclick] = Methods(userInfo)
                     <div className="text-center py-4">
                         <p>Forgot your password ?</p>
                     </div>
-                    <div className="text-center py-4">
+                    <div className="text-center pb-4">
                        
                         <Button onClick = {onclick}>
                                 Sign Up
