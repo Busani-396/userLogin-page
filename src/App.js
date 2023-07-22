@@ -14,12 +14,13 @@ export const UserInfo = createContext();
 const initialDetails = {
   name : '',
   surname : '',
-  username : 'name',
-  surname : 'surname',
+  username : '',
+  surname : '',
   email : '',
   password : '',
   loginNow : false
 }
+
 
 const reducer = (state, action)=>{
           switch(action.type){
@@ -77,9 +78,9 @@ function App() {
       </div>
       
     </div>
-     <studentName.Provider value ='Busani Moyo'>
+     {/* <studentName.Provider value ='Busani Moyo'>
         <Test initialState={initialState}/>
-    </studentName.Provider> 
+    </studentName.Provider>  */}
     
     </div>
   );
