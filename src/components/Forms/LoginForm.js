@@ -1,62 +1,18 @@
-import { useEffect, useState, useContext } from "react";
+import {useContext } from "react";
 import '../Forms/form.css';
 import { UserInfo } from "../../App";
 import InputField from "./InputField";
 import Button from "./Button";
 import Icons from "../Icons/icons";
+import Methods from "../Methods/Methods";
 
 const LoginForm = ()=>{
-    const [user, setUser] = useState({username:"", password:""});
-    const [isActive,setActive] = useState(true);
+   
+    const userInfo = useContext(UserInfo);
 
-    const userInfo = useContext(UserInfo)
+    const [OnChangeInput, onclick] = Methods(userInfo.dispatch);
 
-    const submitForm = ()=>{
-        console.log(user)
-    }
-
-    const onchangeUsername = (e)=>{
-            setUser((prevState)=>{
-               return  {
-                        ...prevState,username: e.target.value
-                     } 
-                    }
-                )
-    }
-
-    const onchangePassword = (e)=>{
-        setUser((prevState)=>{
-            return  {
-                     ...prevState,password: e.target.value
-                  } 
-                 }
-        )
  
-    }
-useEffect(()=>{
-    if(user.username && user.password){
-        setActive(true);
-    }else{
-        setActive(false)
-    }
-})
-
-
-
-const OnChangeInput = (e)=>{
-    const {dispatch} = userInfo;
-    const {name, value } = e.target;
-
-   return dispatch({type : 'login', field : name, value});
-}
-
-
-const onclick = ()=>{
-    console.log('clicked')
-    return userInfo.dispatch({type : 'login'})
-}
- 
-
     return(
         <form>
              <div className="input-group input-group-lg mb-3">
@@ -77,7 +33,7 @@ const onclick = ()=>{
                     </div>
 
                 </form>
-    )
+        )
 }
 
 

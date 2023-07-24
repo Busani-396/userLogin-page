@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import '../Forms/form.css'
 import InputField from "./InputField";
 import Button from "./Button";
@@ -8,6 +8,8 @@ import Methods from "../Methods/Methods";
 
 const RegForm = ()=>{
     const userInfo = useContext(UserInfo)
+
+    
 //     const [user, setUser] = useState({username:"", password:""});
 //     const [isActive,setActive] = useState(true);
 
@@ -42,7 +44,7 @@ const RegForm = ()=>{
 // })
 
 
-const [OnChangeInput, onclick] = Methods(userInfo)
+const [OnChangeInput, onclick] = Methods(userInfo.dispatch)
 
 
 // const OnChangeInput = (e)=>{

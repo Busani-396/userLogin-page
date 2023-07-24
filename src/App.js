@@ -1,12 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import {useState, useEffect, createContext, useReducer} from 'react';
+import { createContext, useReducer} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login';
-import Card from './components/UI/Card';
-import RegForm from './components/Forms/RegForm';
 import Registration from './components/Registration';
-import Test from './components/Test';
 //import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 export const UserInfo = createContext();
 
@@ -15,7 +11,6 @@ const initialDetails = {
   name : '',
   surname : '',
   username : '',
-  surname : '',
   email : '',
   password : '',
   loginNow : false
@@ -49,7 +44,7 @@ function App() {
     return dispatch({type : 'toggle'})
   }
 
-  const initialState = 0;
+  // const initialState = 0;
 
   return (
     <div className='container-fluid d-flex justify-content-center align-items-center' style={{height:'100vh',backgroundColor:'rgba(210,210,210,.6)'}}>
@@ -62,15 +57,13 @@ function App() {
         &nbsp;
         Logo 
         </div>
-        <div class="col-lg-6 col-md-6 d-flex justify-content-end align-items-center">
+        <div className="col-lg-6 col-md-6 d-flex justify-content-end align-items-center">
              <div>
                 <button className='border-0 rounded-pill' onClick ={toggleForms} style={{paddingLeft : '30px', paddingRight: '30px', fontSize:'.8em', fontWeight : '300'}}>{ user.loginNow ? 'Sign Up' : 'Sign In' }</button>
              </div>
           </div>
       </div>
       <div className="row">
-          {/* {loginNow ? <Login/> : <Registration/>} */}
-
           <UserInfo.Provider value = { {user : user, dispatch : dispatch , isTrue : user.loginNow}}>
               {user.loginNow ? <Login/> : <Registration/> }
           </UserInfo.Provider>
