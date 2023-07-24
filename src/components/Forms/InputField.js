@@ -1,5 +1,8 @@
+import { memo } from "react";
+
 function InputField({type, value,name, onChangeInput}){
    
+    console.log("I am input comp, i just rendered")
     return <input type={type}
     value ={value}
     name={name}
@@ -12,4 +15,4 @@ function InputField({type, value,name, onChangeInput}){
 }
 
 
-export default InputField;
+export default memo(InputField);

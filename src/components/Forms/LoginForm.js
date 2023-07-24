@@ -1,4 +1,4 @@
-import {useContext } from "react";
+import {memo, useContext } from "react";
 import '../Forms/form.css';
 import { UserInfo } from "../../App";
 import InputField from "./InputField";
@@ -12,6 +12,7 @@ const LoginForm = ()=>{
 
     const [OnChangeInput, onclick] = Methods(userInfo.dispatch);
 
+    console.log('i am login fORM - just rerendered')
  
     return(
         <form>
@@ -37,4 +38,4 @@ const LoginForm = ()=>{
 }
 
 
-export default LoginForm;
+export default memo(LoginForm);

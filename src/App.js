@@ -1,5 +1,5 @@
 import './App.css';
-import { createContext, useReducer} from 'react';
+import { createContext, useCallback, useReducer} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login';
 import Registration from './components/Registration';
@@ -39,10 +39,10 @@ function App() {
   // const [loginNow, setLoginNow] = useState(true);
 
 
-  const toggleForms = ()=>{
+  const toggleForms = useCallback(()=>{
     //return setLoginNow(!loginNow)
     return dispatch({type : 'toggle'})
-  }
+  },[])
 
   // const initialState = 0;
 
